@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💙 Feliz Cumpleaños, Danna 💐</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(120deg, #b3e5fc, #e1f5fe, #bbdefb);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      color: #0d1b50;
+      position: relative;
+    }
+
+    .glow {
+  text-shadow: 0 0 10px #90caf9, 0 0 20px #bbdefb, 0 0 30px white;
+  animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #90caf9; }
+  to { text-shadow: 0 0 30px white; }
+}
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #0d47a1;
+      margin-bottom: 0.2em;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 1.5s;
+    }
+
+    h2 {
+      font-size: 1.3em;
+      font-weight: 400;
+      color: #1a237e;
+      margin-bottom: 1.5em;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 2.5s;
+    }
+
+    p {
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.9;
+      font-size: 1.1em;
+      opacity: 0;
+      animation: fadeInText 4s ease forwards 3s;
+    }
+
+    .verse {
+      margin-top: 2em;
+      font-style: italic;
+      color: #0d47a1;
+      font-size: 1em;
+      opacity: 0;
+      animation: fadeInText 5s ease forwards 4s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🌸 Texto de bienvenida animado */
+    #welcome {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5em;
+      font-weight: 500;
+      color: #0d47a1;
+      opacity: 0.9;
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: translateX(-50%) scale(1); }
+      to { transform: translateX(-50%) scale(1.05); }
+    }
+
+    /* 🌷 Botón de música */
+    #musicBtn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #81d4fa;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.9em;
+      font-weight: 500;
+      color: #0d47a1;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.3s ease;
+    }
+
+    #musicBtn:hover {
+      background: #4fc3f7;
+      transform: scale(1.1);
+    }
+
+    /* ✨ Partículas */
+    .spark {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome"></div>
+
+  <main>
+<h1>🎉 Feliz Cumpleaños, <span class="glow">Danna 💙</span></h1>
+    <h2>Que este nuevo año sea el comienzo de algo hermoso</h2>
+
+    <p>
+      Hoy el cielo sonríe por ti 🌤️  
+      porque tu vida sigue siendo un regalo, incluso cuando no lo ves del todo.  
+      Danna, aunque hayas tenido días de dudas, tu fe no ha desaparecido:  
+      solo está aprendiendo a florecer de una forma nueva. 🌿  
+      <br><br>
+      Dios no se aleja cuando nos cuesta creer; Él se acerca,  
+      y en Su silencio guarda todo lo que no sabemos cómo decir.  
+      Que este cumpleaños sea una caricia para tu alma,  
+      un recordatorio de que sigues siendo luz, propósito y promesa.  
+      <br><br>
+      Que los próximos días te encuentres más en paz,  
+      más cerca del amor que no cambia,  
+      y más convencida de que incluso en los días grises,  
+      Él sigue obrando por ti, dentro de ti y a través de ti. 💖  
+      <br><br>
+      Feliz cumpleaños, Danna —  
+      el mundo es más suave, más bello, porque tú estás en él. 🌸
+    </p>
+
+    <p class="verse">
+      “El Señor es mi luz y mi salvación; ¿de quién temeré?”  
+      <br>— Salmos 27:1 ✨
+    </p>
+  </main>
+
+  <!-- 🌟 Script -->
+<script>
+  // ✨ Texto animado letra por letra
+  const welcomeText = "Un día especial... para un alma especial 💫";
+  const welcomeDiv = document.getElementById("welcome");
+  let i = 0;
+
+  function typeWriter() {
+    if (i < welcomeText.length) {
+      welcomeDiv.textContent += welcomeText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 80);
+    } else {
+      // ⏳ Cuando termine el texto, espera 20 segundos y cambia de página
+      setTimeout(() => {
+        document.body.style.transition = "opacity 2s ease";
+        document.body.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = "final.html";
+        }, 2000); // 2s de fundido
+      }, 20000); // 20 segundos después del mensaje
+    }
+  }
+
+  // Empieza a escribir después de 1 segundo
+  setTimeout(typeWriter, 1000);
+
+  // 💫 Crear partículas animadas
+  const numParticles = 25;
+  for (let i = 0; i < numParticles; i++) {
+    const spark = document.createElement('div');
+    spark.classList.add('spark');
+    spark.style.left = Math.random() * 100 + 'vw';
+    spark.style.animationDelay = Math.random() * 10 + 's';
+    spark.style.animationDuration = 6 + Math.random() * 5 + 's';
+    document.body.appendChild(spark);
+  }
+
+  // 🎵 Música de fondo
+  const music = new Audio("musica.mp3");
+  const musicBtn = document.getElementById("musicBtn");
+  let playing = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (!playing) {
+      music.play();
+      music.loop = true;
+      playing = true;
+      musicBtn.textContent = "🔇 Silenciar";
+    } else {
+      music.pause();
+      playing = false;
+      musicBtn.textContent = "🎶 Música";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Danna 🌷</title>
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: black;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      transition: background 5s ease;
+    }
+
+    /* 💡 Luz difusa */
+    .light {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 80%);
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 5s ease, transform 7s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ✨ Luz cálida final */
+    .glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,249,196,0.3) 60%, transparent 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 3s ease;
+      z-index: 1;
+    }
+
+    #introText {
+      position: absolute;
+      font-size: 2.5em;
+      color: white;
+      opacity: 0;
+      transition: opacity 1s ease;
+      text-align: center;
+      z-index: 2;
+    }
+
+    #intro {
+      color: #0d47a1;
+      font-size: 1.3em;
+      max-width: 600px;
+      text-align: center;
+      line-height: 1.6;
+      white-space: pre-line;
+      opacity: 0;
+      display: none;
+      z-index: 2;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    h1, p, button {
+      display: none;
+      text-align: center;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #0d47a1;
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      text-shadow: 2px 2px 5px #90caf9;
+    }
+
+    p {
+      color: #1a237e;
+      font-size: 1.2em;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 30px;
+      background-color: #81d4fa;
+      color: #0d47a1;
+      font-size: 1.1em;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #4fc3f7;
+      transform: scale(1.05);
+    }
+
+    /* 🌸 Flores flotando */
+    .flower {
+      position: absolute;
+      width: 60px;
+      animation: float 12s infinite linear;
+      opacity: 0.8;
+      pointer-events: none;
+      display: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-10vh) rotate(360deg); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      p, #intro { font-size: 1.1em; max-width: 90%; }
+      #introText { font-size: 1.8em; }
+    }
+</style>
+</head>
+<body>
+  <div class="light" id="light"></div>
+  <div class="glow" id="glow"></div>
+
+  <div id="introText"></div>
+  <div id="intro"></div>
+
+  <h1>🎉 Feliz Cumpleaños, Danna 💙</h1>
+  <p>"El Señor te bendiga y te guarde; el Señor haga resplandecer su rostro sobre ti y tenga de ti misericordia." <br>— Números 6:24-25 ✨</p>
+  <button onclick="window.location.href='mensaje.html'">💌 Mi mensaje para ti</button>
+
+ 
+  <!-- 🔊 Efectos de sonido -->
+  <audio id="booSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_040b25a302.mp3?filename=boo-112190.mp3"></audio>
+  <audio id="shineSound" src="https://cdn.pixabay.com/download/audio/2022/03/14/audio_b17b6f4cfb.mp3?filename=angelic-bells-112088.mp3"></audio>
+  <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b26b3f4d41.mp3?filename=soft-piano-ambient-112189.mp3" autoplay loop></audio>
+
+  <script>
+    const introText = document.getElementById("introText");
+    const intro = document.getElementById("intro");
+    const body = document.body;
+    const light = document.getElementById("light");
+    const glow = document.getElementById("glow");
+    const booSound = document.getElementById("booSound");
+    const shineSound = document.getElementById("shineSound");
+    const music = document.getElementById("music");
+
+    // 🎵 Volumen gradual
+    music.volume = 0;
+    let fadeMusic = setInterval(() => {
+      if (music.volume < 0.4) music.volume += 0.01;
+    }, 200);
+
+    // 🌑 Inicio oscuro
+    setTimeout(() => {
+      introText.textContent = "¡Buuu! 😱";
+      introText.style.opacity = "1";
+      booSound.play();
+
+      setTimeout(() => {
+        introText.style.opacity = "0";
+        setTimeout(() => {
+          introText.textContent = "¿Te asustaste? jeje 😄";
+          introText.style.opacity = "1";
+
+          setTimeout(() => {
+            introText.style.opacity = "0";
+            // 🌟 Empieza la iluminación suave
+            setTimeout(() => {
+              shineSound.play();
+              light.style.opacity = "1";
+              light.style.transform = "scale(6)";
+              body.style.transition = "background 6s ease-in-out";
+              body.style.background = "linear-gradient(180deg, #b3e5fc, #e3f2fd)";
+              setTimeout(() => iniciarMensaje(), 4000);
+            }, 1000);
+          }, 3000);
+        }, 1200);
+      }, 2000);
+    }, 8000);
+
+    // ✍️ Mensaje letra por letra
+    const mensaje = [
+      "Hola... 😊",
+      "¿Cómo estás, Danna?",
+      "Jeje, espero que estés sonriendo en este momento 💙",
+      "Solo quería decirte algo antes de todo...",
+      "Espero que te encuentres bien hoy,",
+      "porque este día es tuyo, y es tan especial como tú 🌷",
+      "Este regalo está hecho con mucho cariño,",
+      "Espero te guste jeje 😊 "
+    ];
+
+    let i = 0, j = 0;
+    const velocidad = 60;
+
+    function iniciarMensaje() {
+      intro.style.display = "block";
+      intro.style.animation = "fadeIn 2s forwards";
+      escribir();
+    }
+
+    function escribir() {
+      if (i < mensaje.length) {
+        if (j < mensaje[i].length) {
+          intro.textContent += mensaje[i].charAt(j);
+          j++;
+          setTimeout(escribir, velocidad);
+        } else {
+          intro.textContent += "\n\n";
+          j = 0;
+          i++;
+          setTimeout(escribir, 800);
+        }
+      } else {
+        mostrarContenido();
+      }
+    }
+
+    // 🎉 Mostrar saludo final
+    function mostrarContenido() {
+      intro.style.display = "none";
+      glow.style.opacity = "1";
+      document.querySelector("h1").style.display = "block";
+      document.querySelector("p").style.display = "block";
+      document.querySelector("button").style.display = "inline-block";
+      document.querySelectorAll(".flower").forEach(f => f.style.display = "block");
+    }
+  </script>
+</body>
+</html>
